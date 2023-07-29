@@ -1,0 +1,20 @@
+{
+    "keep": {
+        "days": true,
+        "amount": 14
+    },
+    "auditLog": "G:\\Next Level Web development\\Fundamental of NextJs\\Assignment-5\\pc-builder-backend\\logs\\winston\\successes\\.eb319ee6d7e765c1539f48261a99823c192d6a90-audit.json",
+    "files": [
+        {
+            "date": 1690662951748,
+            "name": "G:\\Next Level Web development\\Fundamental of NextJs\\Assignment-5\\pc-builder-backend\\logs\\winston\\successes\\project-title-2023-30-07-02-success.log",
+            "hash": "d94589b3a23ddd58ce3c01377fff86ea353ce35e9f62c91d0cfc066149ad278c"
+        },
+        {
+            "date": 1690664565430,
+            "name": "G:\\Next Level Web development\\Fundamental of NextJs\\Assignment-5\\pc-builder-backend\\logs\\winston\\successes\\project-title-2023-30-07-03-success.log",
+            "hash": "2fd98605c6d522e0260f423a0757486d1cb4b268baccef091991f139bcdfd2f8"
+        }
+    ],
+    "hashType": "sha256"
+}
