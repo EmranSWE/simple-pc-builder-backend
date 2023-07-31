@@ -33,7 +33,35 @@ const getProducts: RequestHandler = catchAsync(
     });
   }
 );
+
+const getSingleProduct: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+
+    const result = await ProductService.getSingleProduct(id);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Product fetch successfully',
+      data: result,
+    });
+  }
+);
+const deleteAProduct: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const result = await ProductService.deleteAProduct(id);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Books Deleted successfully',
+      data: result,
+    });
+  }
+);
 export const productController = {
   createProduct,
+  getSingleProduct,
   getProducts,
+  deleteAProduct,
 };

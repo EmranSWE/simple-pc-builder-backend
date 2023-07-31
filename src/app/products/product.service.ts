@@ -73,7 +73,18 @@ const getProducts = async (
   };
 };
 
+const getSingleProduct = async (id: string) => {
+  const allBook = Product.findById({ _id: id });
+  return allBook;
+};
+
+const deleteAProduct = async (id: string) => {
+  const deletedBook = await Product.deleteOne({ _id: id });
+  return deletedBook;
+};
 export const ProductService = {
   createProduct,
   getProducts,
+  getSingleProduct,
+  deleteAProduct,
 };
