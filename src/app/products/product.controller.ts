@@ -3,6 +3,8 @@ import httpStatus from 'http-status';
 import catchAsync from '../../shared/catchAsync';
 import sendResponse from '../../shared/sendResponse';
 import { ProductService } from './product.service';
+import pick from '../../shared/pick';
+import { paginationFields, pcFilterableFields } from './products.interface';
 
 const createProduct: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
@@ -12,12 +14,26 @@ const createProduct: RequestHandler = catchAsync(
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'User created successfully',
+      message: 'Product created successfully',
       data: result,
     });
   }
 );
 
+const getProducts: RequestHandler = catchAsync(
+  async (req: Request, res: Response) => {
+    const filters = pick(req.query, pcFilterableFields);
+    const paginationOptions = pick(req.query, paginationFields);
+    const result = await ProductService.getProducts(paginationOptions, filters);
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Product fetch successfully',
+      data: result,
+    });
+  }
+);
 export const productController = {
   createProduct,
+  getProducts,
 };

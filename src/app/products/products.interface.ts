@@ -30,3 +30,41 @@ export type IProduct = {
 };
 
 export type ProductModel = Model<IProduct, Record<string, unknown>>;
+
+export const pcFilterableFields = [
+  'name',
+  'category',
+  'status',
+  'price',
+  'averageRating',
+  'searchTerm',
+];
+export const pcSearchableFields = [
+  'name',
+  'category',
+  'status',
+  'price',
+  'averageRating',
+];
+
+export const paginationFields = ['page', 'limit', 'sortBy', 'orderBy'];
+
+export type IPaginationOptions = {
+  page?: number;
+  limit?: number;
+  sortBy?: string;
+  sortOrder?: 'asc' | 'desc';
+};
+
+export type IProductFilters = {
+  searchTerm?: string;
+};
+
+export type IGenericResponse<T> = {
+  meta: {
+    page?: number;
+    limit?: number;
+    total: number;
+  };
+  data: T;
+};
